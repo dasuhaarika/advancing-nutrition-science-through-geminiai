@@ -1,0 +1,31 @@
+import sqlite3
+
+def create_database():
+    conn = sqlite3.connect("nutrition.db")
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS reports (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        bmi REAL,
+        goal TEXT,
+        analysis TEXT
+    )
+    """)
+
+    conn.commit()
+    conn.close()
+
+
+def save_report(name, bmi, goal, analysis):
+    conn = sqlite3.connect("nutrition.db")
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    INSERT INTO reports (name, bmi, goal, analysis)
+    VALUES (?, ?, ?, ?)
+    """, (name, bmi, goal, analysis))
+
+    conn.commit()
+    conn.close()
