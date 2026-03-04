@@ -1,0 +1,13 @@
+def predict_health_risk(bmi, sugar_intake, cholesterol):
+    
+    if bmi > 30 and sugar_intake > 70:
+        return "High Risk of Type 2 Diabetes"
+
+    elif cholesterol > 240:
+        return "High Risk of Cardiovascular Disease"
+
+    elif bmi < 18.5:
+        return "Risk of Malnutrition"
+
+    else:
+        return "No Major Disease Risk Detected"
