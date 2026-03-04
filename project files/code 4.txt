@@ -1,0 +1,19 @@
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import letter
+
+def generate_pdf(report_text, filename="nutrition_report.pdf"):
+    doc = SimpleDocTemplate(filename, pagesize=letter)
+    styles = getSampleStyleSheet()
+    elements = []
+
+    paragraphs = report_text.split("\n")
+
+    for line in paragraphs:
+        elements.append(Paragraph(line, styles["Normal"]))
+        elements.append(Spacer(1, 12))
+
+    doc.build(elements)
+
+    return filename
