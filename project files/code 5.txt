@@ -1,0 +1,22 @@
+def detect_deficiencies(protein, iron, vitamin_d, calcium, fiber):
+    deficiencies = []
+
+    if protein < 50:
+        deficiencies.append("Possible Protein Deficiency (Muscle weakness risk)")
+
+    if iron < 18:
+        deficiencies.append("Iron Deficiency Risk (Anemia risk)")
+
+    if vitamin_d < 600:
+        deficiencies.append("Vitamin D Deficiency (Bone health risk)")
+
+    if calcium < 1000:
+        deficiencies.append("Calcium Deficiency (Osteoporosis risk)")
+
+    if fiber < 25:
+        deficiencies.append("Low Fiber Intake (Digestive risk)")
+
+    if not deficiencies:
+        deficiencies.append("No major deficiencies detected")
+
+    return deficiencies
