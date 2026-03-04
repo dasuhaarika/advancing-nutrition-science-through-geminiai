@@ -1,0 +1,32 @@
+def calculate_bmi(weight, height):
+    """
+    weight in kg
+    height in meters
+    """
+    bmi = weight / (height ** 2)
+    
+    if bmi < 18.5:
+        category = "Underweight"
+    elif 18.5 <= bmi < 24.9:
+        category = "Normal Weight"
+    elif 25 <= bmi < 29.9:
+        category = "Overweight"
+    else:
+        category = "Obese"
+
+    return round(bmi, 2), category
+
+
+def nutrition_score(calories, protein, sugar, fiber):
+    score = 100
+
+    if calories > 2500:
+        score -= 10
+    if sugar > 50:
+        score -= 15
+    if protein < 50:
+        score -= 10
+    if fiber < 25:
+        score -= 10
+
+    return max(score, 0)
