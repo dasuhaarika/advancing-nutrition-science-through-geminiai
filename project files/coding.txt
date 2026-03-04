@@ -1,0 +1,15 @@
+def calculate_bmi(weight, height):
+    return weight / (height ** 2)
+def calorie_target(goal):
+    if goal == "Weight Loss":
+        return "Recommended daily intake: 1500–1800 kcal"
+    elif goal == "Muscle Gain":
+        return "Recommended daily intake: 2500–3000 kcal"
+def generate_meal_plan(goal):
+    prompt = f"""
+    Create a 7-day healthy meal plan for a person whose goal is {goal}.
+    Include breakfast, lunch, dinner, and snacks.
+    Provide calorie estimate for each day.
+    """
+    response = model.generate_content(prompt)
+    return response.text
