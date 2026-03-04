@@ -1,0 +1,14 @@
+import matplotlib.pyplot as plt
+
+def macronutrient_chart(protein, carbs, fats):
+    labels = ['Protein', 'Carbohydrates', 'Fats']
+    values = [protein, carbs, fats]
+
+    plt.figure()
+    plt.pie(values, labels=labels, autopct='%1.1f%%')
+    plt.title("Macronutrient Distribution")
+
+    plt.savefig("macro_chart.png")
+    plt.close()
+
+    return "macro_chart.png"
