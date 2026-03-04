@@ -1,0 +1,31 @@
+import google.generativeai as genai
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+
+model = genai.GenerativeModel("gemini-pro")
+
+def analyze_nutrition(user_input, goal):
+    prompt = f"""
+    You are an Advanced Nutrition Science AI.
+
+    Analyze the following diet in scientific detail:
+    
+    1. Total Calories
+    2. Macronutrient Breakdown (Protein, Carbs, Fats)
+    3. Micronutrients
+    4. Deficiencies
+    5. Health Risks
+    6. Personalized Diet Plan based on goal: {goal}
+
+    Provide structured output.
+
+    Diet Details:
+    {user_input}
+    """
+
+    response = model.generate_content(prompt)
+    return response.text
