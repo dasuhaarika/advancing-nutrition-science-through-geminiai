@@ -1,0 +1,21 @@
+def analyze_nutrition_structured(user_input):
+    prompt = f"""
+    Analyze this diet scientifically and return output in JSON format:
+
+    {{
+        "calories": "",
+        "protein_g": "",
+        "carbs_g": "",
+        "fats_g": "",
+        "vitamins": "",
+        "minerals": "",
+        "health_risks": "",
+        "recommendations": ""
+    }}
+
+    Diet:
+    {user_input}
+    """
+
+    response = model.generate_content(prompt)
+    return response.text
